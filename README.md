@@ -1,32 +1,3 @@
-# 1. Installez le paquet requis (si ce n'est pas déjà fait)
-sudo apt update && sudo apt install python3-full -y
-
-# 2. Créez l'environnement virtuel nommé idxia
-python3 -m venv idxia
-
-# 3. Activez l'environnement virtuel
-source idxia/bin/activate
-
-# 4. Installez enfin votre package sans erreur
-pip install kagglehub
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # IDXIA — Système de détection d'intrusion explicable
 
 ## Installation
