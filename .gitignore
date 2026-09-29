@@ -1,0 +1,8 @@
+idxia/
+venv/
+__pycache__/
+*.pyc
+data/raw/
+models/*.pkl
+.env
+reports/*.json
