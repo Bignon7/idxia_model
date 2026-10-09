@@ -7,7 +7,7 @@ sauvegarde le meilleur modele ainsi que les encodeurs utilises
 (necessaires plus tard pour l'API de prediction).
 
 Usage :
-    python train_model.py
+    python3 train_model.py
 """
 
 import json

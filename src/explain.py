@@ -8,7 +8,7 @@ Genere l'explicabilite du modele retenu avec SHAP :
   (utile plus tard dans l'API : "pourquoi cette session est signalee ?")
 
 Usage :
-    python explain.py
+    python3 explain.py
 """
 
 import glob
