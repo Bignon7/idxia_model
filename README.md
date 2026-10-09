@@ -4,7 +4,7 @@
 
 ```bash
 # 1. Créer et activer un environnement virtuel
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate      # sous Windows : venv\Scripts\activate
 
 # 2. Installer les dépendances
@@ -25,7 +25,7 @@ deactivate
 ## Étape 1 — Télécharger le dataset
 
 ```bash
-python data/import_data.py
+python3 data/import_data.py
 ```
 
 Le CSV atterrit dans `data/raw/cybersecurity_intrusion_data.csv`.
@@ -34,7 +34,7 @@ Le CSV atterrit dans `data/raw/cybersecurity_intrusion_data.csv`.
 
 ```bash
 cd src
-python train_model.py
+python3 train_model.py
 ```
 
 Ce script :
