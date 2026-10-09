@@ -88,4 +88,4 @@ Le code gère les deux formats de sortie de la bibliothèque `shap` (liste de ta
 
 - Le dataset est synthétique : les performances mesurées ne se transposent pas telles quelles à du trafic réel.
 - Le modèle travaille sur des variables de session liées à l'authentification (tentatives, échecs, réputation IP, horaire, navigateur) et non sur le contenu du trafic réseau.
-- Le dossier `cic_validation/` du projet (validation sur CIC-IDS2017) est une piste d'approfondissement en pause, indépendante de ce pipeline.
+- Le dossier `cic-validation/` du projet (validation sur CIC-IDS2017) est une piste d'approfondissement en pause, indépendante de ce pipeline.
