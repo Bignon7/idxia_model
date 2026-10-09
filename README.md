@@ -9,6 +9,9 @@ source venv/bin/activate      # sous Windows : venv\Scripts\activate
 
 # 2. Installer les dépendances
 pip install -r requirements.txt
+
+# 2. Désactiver l'env virtuel
+deactivate
 ```
 
 ## Configuration Kaggle (une seule fois)

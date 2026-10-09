@@ -16,6 +16,7 @@ import os
 
 import joblib
 import matplotlib.pyplot as plt
+import numpy as np
 import shap
 
 from preprocessing import prepare_dataset
@@ -45,8 +46,16 @@ def explain_global(model, X_test, feature_cols):
     explainer = shap.TreeExplainer(model)
     shap_values = explainer.shap_values(X_test)
 
-    # Pour un classifieur binaire, shap_values peut etre une liste [classe0, classe1]
-    values_for_plot = shap_values[1] if isinstance(shap_values, list) else shap_values
+    # Ancienne API : liste [array_classe_0, array_classe_1]
+    # Nouvelle API : array numpy (n_echantillons, n_features, n_classes)
+    if isinstance(shap_values, list):
+        values_for_plot = shap_values[1]
+    else:
+        values_arr = shap_values if hasattr(shap_values, "ndim") else None
+        if values_arr is not None and values_arr.ndim == 3:
+            values_for_plot = values_arr[:, :, 1]
+        else:
+            values_for_plot = shap_values
 
     os.makedirs(REPORTS_DIR, exist_ok=True)
     plt.figure()
@@ -64,7 +73,12 @@ def explain_single_session(explainer, session_row, feature_cols, top_n: int = 3)
     vers 'attaque' pour UNE session donnee. C'est cette fonction que l'API
     reutilisera pour repondre 'pourquoi cette alerte ?'."""
     shap_values = explainer.shap_values(session_row)
-    values = shap_values[1][0] if isinstance(shap_values, list) else shap_values[0]
+
+    if isinstance(shap_values, list):
+        values = shap_values[1][0]
+    else:
+        values_arr = np.asarray(shap_values)
+        values = values_arr[0, :, 1] if values_arr.ndim == 3 else values_arr[0]
 
     contributions = list(zip(feature_cols, values))
     contributions.sort(key=lambda x: abs(x[1]), reverse=True)
